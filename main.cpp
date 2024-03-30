@@ -182,6 +182,405 @@ void bispo(float colorR, float colorG, float colorB){
 
 }
 
+void cabecaTorre(){
+    //frontal
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,1);
+        glVertex3f(-0.5,0,0.5);
+        glVertex3f(0.5,0,0.5);
+        glVertex3f(0.5,0.2,0.5);
+        glVertex3f(-0.5,0.2,0.5);
+    glEnd();
+    //traseira
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,-1);
+        glVertex3f(-0.5,0,-0.5);
+        glVertex3f(-0.5,0.2,-0.5);
+        glVertex3f(0.5,0.2,-0.5);
+        glVertex3f(0.5,0,-0.5);
+    glEnd();
+    //esquerda
+    glBegin(GL_POLYGON);
+        glNormal3f(-1,0,0);
+        glVertex3f(-0.5,0,0.5);
+        glVertex3f(-0.5,0.2,0.5);
+        glVertex3f(-0.5,0.2,-0.5);
+        glVertex3f(-0.5,0,-0.5);
+    glEnd();
+    //direita
+    glBegin(GL_POLYGON);
+        glNormal3f(1,0,0);
+        glVertex3f(0.5,0,0.5);
+        glVertex3f(0.5,0,-0.5);
+        glVertex3f(0.5,0.2,-0.5);
+        glVertex3f(0.5,0.2,0.5);
+    glEnd();
+    //superior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,1,0);
+        glVertex3f(-0.5,0.2,0.5);
+        glVertex3f(0.5,0.2,0.5);
+        glVertex3f(0.5,0.2,-0.5);
+        glVertex3f(-0.5,0.2,-0.5);
+    glEnd();
+    //inferior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,-1,0);
+        glVertex3f(-0.5,0,0.5);
+        glVertex3f(-0.5,0,-0.5);
+        glVertex3f(0.5,0,-0.5);
+        glVertex3f(0.5,0,0.5);
+    glEnd();
+
+    //batente frente frente
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,1);
+        glVertex3f(-0.3,0.2,0.5);
+        glVertex3f(0.3,0.2,0.5);
+        glVertex3f(0.3,0.4,0.5);
+        glVertex3f(-0.3,0.4,0.5);
+    glEnd();
+    //batente frente esquerda
+    glBegin(GL_POLYGON);
+        glNormal3f(-1,0,0);
+        glVertex3f(-0.3,0.2,0.5);
+        glVertex3f(-0.3,0.4,0.5);
+        glVertex3f(-0.3,0.4,0.35);
+        glVertex3f(-0.3,0.2,0.35);
+    glEnd();
+    //batente frente direita
+    glBegin(GL_POLYGON);
+        glNormal3f(1,0,0);
+        glVertex3f(0.3,0.2,0.5);
+        glVertex3f(0.3,0.2,0.35);
+        glVertex3f(0.3,0.4,0.35);
+        glVertex3f(0.3,0.4,0.5);
+    glEnd();
+    //batente frente traseira
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,-1);
+        glVertex3f(-0.3,0.2,0.35);
+        glVertex3f(-0.3,0.4,0.35);
+        glVertex3f(0.3,0.4,0.35);
+        glVertex3f(0.3,0.2,0.35);
+    glEnd();
+    //batente frente superior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,1,0);
+        glVertex3f(-0.3,0.4,0.5);
+        glVertex3f(0.3,0.4,0.5);
+        glVertex3f(0.3,0.4,0.35);
+        glVertex3f(-0.3,0.4,0.35);
+    glEnd();
+
+    //batente traz frente
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,-1);
+        glVertex3f(-0.3,0.2,-0.5);
+        glVertex3f(-0.3,0.4,-0.5);
+        glVertex3f(0.3,0.4,-0.5);
+        glVertex3f(0.3,0.2,-0.5);
+    glEnd();
+    //batente traz esquerda
+    glBegin(GL_POLYGON);
+        glNormal3f(-1,0,0);
+        glVertex3f(-0.3,0.2,-0.5);
+        glVertex3f(-0.3,0.2,-0.35);
+        glVertex3f(-0.3,0.4,-0.35);
+        glVertex3f(-0.3,0.4,-0.5);
+    glEnd();
+    //batente frente direita
+    glBegin(GL_POLYGON);
+        glNormal3f(1,0,0);
+        glVertex3f(0.3,0.2,-0.5);
+        glVertex3f(0.3,0.4,-0.5);
+        glVertex3f(0.3,0.4,-0.35);
+        glVertex3f(0.3,0.2,-0.35);
+    glEnd();
+    //batente traz traseira
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,1);
+        glVertex3f(-0.3,0.2,-0.35);
+        glVertex3f(0.3,0.2,-0.35);
+        glVertex3f(0.3,0.4,-0.35);
+        glVertex3f(-0.3,0.4,-0.35);
+    glEnd();
+    //batente traz superior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,1,0);
+        glVertex3f(-0.3,0.4,-0.5);
+        glVertex3f(-0.3,0.4,-0.35);
+        glVertex3f(0.3,0.4,-0.35);
+        glVertex3f(0.3,0.4,-0.5);
+    glEnd();
+
+    //batente esquerda frente
+    glBegin(GL_POLYGON);
+        glNormal3f(-1,0,0);
+        glVertex3f(-0.5,0.2,0.3);
+        glVertex3f(-0.5,0.4,0.3);
+        glVertex3f(-0.5,0.4,-0.3);
+        glVertex3f(-0.5,0.2,-0.3);
+    glEnd();
+    //batente esquerda traz
+    glBegin(GL_POLYGON);
+        glNormal3f(1,0,0);
+        glVertex3f(-0.35,0.2,0.3);
+        glVertex3f(-0.35,0.2,-0.3);
+        glVertex3f(-0.35,0.4,-0.3);
+        glVertex3f(-0.35,0.4,0.3);
+    glEnd();
+    //batente esquerda direita
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,1);
+        glVertex3f(-0.35,0.2,0.3);
+        glVertex3f(-0.35,0.4,0.3);
+        glVertex3f(-0.5,0.4,0.3);
+        glVertex3f(-0.5,0.2,0.3);
+    glEnd();
+    //batente esquerda esquerda
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,-1);
+        glVertex3f(-0.35,0.2,-0.3);
+        glVertex3f(-0.5,0.2,-0.3);
+        glVertex3f(-0.5,0.4,-0.3);
+        glVertex3f(-0.35,0.4,-0.3);
+    glEnd();
+    //batente frente superior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,1,0);
+        glVertex3f(-0.5,0.4,0.3);
+        glVertex3f(-0.35,0.4,0.3);
+        glVertex3f(-0.35,0.4,-0.3);
+        glVertex3f(-0.5,0.4,-0.3);
+    glEnd();
+
+    //batente direita frente
+    glBegin(GL_POLYGON);
+        glNormal3f(1,0,0);
+        glVertex3f(0.5,0.2,0.3);
+        glVertex3f(0.5,0.2,-0.3);
+        glVertex3f(0.5,0.4,-0.3);
+        glVertex3f(0.5,0.4,0.3);
+    glEnd();
+    //batente direita traz
+    glBegin(GL_POLYGON);
+        glNormal3f(-1,0,0);
+        glVertex3f(0.35,0.2,0.3);
+        glVertex3f(0.35,0.4,0.3);
+        glVertex3f(0.35,0.4,-0.3);
+        glVertex3f(0.35,0.2,-0.3);
+    glEnd();
+    //batente direita direita
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,-1);
+        glVertex3f(0.35,0.2,-0.3);
+        glVertex3f(0.35,0.4,-0.3);
+        glVertex3f(0.5,0.4,-0.3);
+        glVertex3f(0.5,0.2,-0.3);
+    glEnd();
+    //batente direita esquerda
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,1);
+        glVertex3f(0.5,0.2,0.3);
+        glVertex3f(0.5,0.4,0.3);
+        glVertex3f(0.35,0.4,0.3);
+        glVertex3f(0.35,0.2,0.3);
+    glEnd();
+    //batente frente superior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,1,0);
+        glVertex3f(0.5,0.4,0.3);
+        glVertex3f(0.5,0.4,-0.3);
+        glVertex3f(0.35,0.4,-0.3);
+        glVertex3f(0.35,0.4,0.3);
+    glEnd();
+}
+
+void torre(float colorR, float colorG, float ColorB){
+
+    glPushMatrix();
+    GUI::habilitaTextura(true,false,0);
+    GUI::selecionaTextura(6);
+    GUI::setColor(colorR,colorG,ColorB);
+    glTranslatef(0,1.45,0);
+    cabecaTorre();
+    glTranslatef(0,-1.45,0);
+
+    glTranslatef(0,-0.35, 0);
+
+    glRotatef(90, 1, 0, 0);
+    glTranslatef(0, 0, -1.8);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.47, 0.47, 0.15, 100, 60);
+
+    glTranslatef(0, 0, 0.15);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.4, 0.4, 1, 60, 100);
+
+    glTranslatef(0, 0, 1);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.57, 0.57, 0.15, 100, 60);
+
+    glTranslatef(0, 0, 0.13);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.65, 0.65, 0.15, 100, 60);
+
+    GUI::desabilitaTextura(true,false);
+
+    glPopMatrix();
+
+}
+
+void rainha(float colorR, float colorG, float ColorB){
+    GUI::habilitaTextura(true,false,0);
+    GUI::selecionaTextura(6);
+    GUI::setColor(colorR,colorG,ColorB);
+
+    glPushMatrix();
+
+    glRotatef(-90, 1, 0, 0);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.65, 0.65, 0.15, 100, 60);
+
+    glTranslatef(0, 0, 0.15);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.57, 0.57, 0.15, 100, 60);
+
+    glTranslatef(0, 0, 0.15);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.46, 0.23, 1.15, 60, 100);
+
+    glTranslatef(0, 0, 1.1);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.33, 0.33, 0.15, 100, 60);
+
+    glTranslatef(0, 0, 0.15);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.23, 0.38, 0.35, 60, 100);
+
+    glTranslatef(0, 0, 0.35);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.32, 0.06, 0.20, 60, 100);
+    GUI::desabilitaTextura(true,false);
+    glPopMatrix();
+
+    GUI::drawSphere(0, 2.15, 0, 0.1);
+}
+
+void cruzRei(){
+    //vertical frente
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,1);
+        glVertex3f(-0.05,0,0.05);
+        glVertex3f(0.05,0,0.05);
+        glVertex3f(0.05,0.4,0.05);
+        glVertex3f(-0.05,0.4,0.05);
+    glEnd();
+    //vertical traz
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,-1);
+        glVertex3f(-0.05,0,-0.05);
+        glVertex3f(-0.05,0.4,-0.05);
+        glVertex3f(0.05,0.4,-0.05);
+        glVertex3f(0.05,0,-0.05);
+    glEnd();
+    //vertical esquerda
+    glBegin(GL_POLYGON);
+        glNormal3f(-1,0,0);
+        glVertex3f(-0.05,0,0.05);
+        glVertex3f(-0.05,0.4,0.05);
+        glVertex3f(-0.05,0.4,-0.05);
+        glVertex3f(-0.05,0,-0.05);
+    glEnd();
+    //vertical direita
+    glBegin(GL_POLYGON);
+        glNormal3f(1,0,0);
+        glVertex3f(0.05,0,0.05);
+        glVertex3f(0.05,0,-0.05);
+        glVertex3f(0.05,0.4,-0.05);
+        glVertex3f(0.05,0.4,0.05);
+    glEnd();
+    //vertical superior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,1,0);
+        glVertex3f(-0.05,0.4,0.05);
+        glVertex3f(0.05,0.4,0.05);
+        glVertex3f(0.05,0.4,-0.05);
+        glVertex3f(-0.05,0.4,-0.05);
+    glEnd();
+    //horizontal frente
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,1);
+        glVertex3f(-0.15,0.2,0.05);
+        glVertex3f(0.15,0.2,0.05);
+        glVertex3f(0.15,0.3,0.05);
+        glVertex3f(-0.15,0.3,0.05);
+    glEnd();
+    //horizontal traz
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,-1);
+        glVertex3f(-0.15,0.2,-0.05);
+        glVertex3f(-0.15,0.3,-0.05);
+        glVertex3f(0.15,0.3,-0.05);
+        glVertex3f(0.15,0.2,-0.05);
+    glEnd();
+    //horizontal superior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,1,0);
+        glVertex3f(-0.15,0.3,0.05);
+        glVertex3f(0.15,0.3,0.05);
+        glVertex3f(0.15,0.3,-0.05);
+        glVertex3f(-0.15,0.3,-0.05);
+    glEnd();
+    //horizontal inferior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,-1,0);
+        glVertex3f(-0.15,0.2,0.05);
+        glVertex3f(-0.15,0.2,-0.05);
+        glVertex3f(0.15,0.2,-0.05);
+        glVertex3f(0.15,0.2,0.05);
+    glEnd();
+    //horizontal direita
+    glBegin(GL_POLYGON);
+        glNormal3f(1,0,0);
+        glVertex3f(0.15,0.2,0.05);
+        glVertex3f(0.15,0.2,-0.05);
+        glVertex3f(0.15,0.3,-0.05);
+        glVertex3f(0.15,0.3,0.05);
+    glEnd();
+    //horizontal esquerda
+    glBegin(GL_POLYGON);
+        glNormal3f(-1,0,0);
+        glVertex3f(-0.15,0.2,0.05);
+        glVertex3f(-0.15,0.3,0.05);
+        glVertex3f(-0.15,0.3,-0.05);
+        glVertex3f(-0.15,0.2,-0.05);
+    glEnd();
+}
+
+void rei(float colorR, float colorG, float ColorB){
+    GUI::habilitaTextura(true,false,0);
+    GUI::selecionaTextura(6);
+    GUI::setColor(colorR,colorG,ColorB);
+
+    glPushMatrix();
+
+    glRotatef(-90, 1, 0, 0);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.65, 0.65, 0.15, 100, 60);
+
+    glTranslatef(0, 0, 0.15);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.57, 0.57, 0.15, 100, 60);
+
+    glTranslatef(0, 0, 0.15);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.46, 0.23, 1.15, 60, 100);
+
+    glTranslatef(0, 0, 1.1);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.33, 0.33, 0.15, 100, 60);
+
+    glTranslatef(0, 0, 0.15);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.23, 0.38, 0.35, 60, 100);
+
+    glTranslatef(0, 0, 0.35);
+    Desenha::gluClosedCylinder(gluNewQuadric(), 0.32, 0.06, 0.20, 60, 100);
+    glPopMatrix();
+
+    glTranslatef(0, 2, 0);
+    cruzRei();
+    GUI::desabilitaTextura(true,false);
+
+}
+
 void casaTaboleiro(){
     //frontal
     glBegin(GL_POLYGON);
@@ -284,7 +683,7 @@ void desenha() {
     glTranslatef(0,0,-5);
     glScalef(0.5,0.5,0.5);
     for(int i=1; i<=8; i++){
-        peao(0.2,0.2,0.2);
+        peao(0.1,0.1,0.1);
         glTranslatef(2,0,0);
     }
     glPopMatrix();
@@ -304,16 +703,64 @@ void desenha() {
     glPushMatrix();
     glTranslatef(2,0,-6);
     glScalef(0.5,0.5,0.5);
-    bispo(0.2,0.2,0.2);
+    bispo(0.1,0.1,0.1);
     glPopMatrix();
 
     glPushMatrix();
     glTranslatef(5,0,-6);
     glScalef(0.5,0.5,0.5);
-    bispo(0.2,0.2,0.2);
+    bispo(0.1,0.1,0.1);
     glPopMatrix();
-    GUI::displayEnd();
 
+    glPushMatrix();
+    glTranslatef(0,0,1);
+    glScalef(0.5,0.5,0.5);
+    torre(1,1,1);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(7,0,1);
+    glScalef(0.5,0.5,0.5);
+    torre(1,1,1);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(0,0,-6);
+    glScalef(0.5,0.5,0.5);
+    torre(0.1,0.1,0.1);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(7,0,-6);
+    glScalef(0.5,0.5,0.5);
+    torre(0.1,0.1,0.1);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(4,0,1);
+    glScalef(0.5,0.63,0.5);
+    rainha(1,1,1);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(4,0,-6);
+    glScalef(0.5,0.63,0.5);
+    rainha(0.1,0.1,0.1);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(3,0,1);
+    glScalef(0.5,0.63,0.5);
+    rei(1,1,1);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(3,0,-6);
+    glScalef(0.5,0.63,0.5);
+    rei(0.1,0.1,0.1);
+    glPopMatrix();
+
+    GUI::displayEnd();
 }
 
 void teclado(unsigned char tecla, int x, int y) {
