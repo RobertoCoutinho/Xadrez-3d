@@ -10,122 +10,16 @@ using namespace std;
 Vetor3D posEsfera = Vetor3D(2,1,0);
 float raioEsfera = 0.2;
 
-//Model3DS carro = Model3DS("../3ds/cartest.3DS");
-
-void casa()
-{
-    //glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-
-    //frontal
-    glBegin(GL_POLYGON);
-        glNormal3f(0,0,1);
-        glVertex3f(0,0,1);
-        glVertex3f(1,0,1);
-        glVertex3f(1,1,1);
-        glVertex3f(0,1,1);
-    glEnd();
-    //traseira
-    glBegin(GL_POLYGON);
-        glNormal3f(0,0,-1);
-        glVertex3f(0,0,0);
-        glVertex3f(0,1,0);
-        glVertex3f(1,1,0);
-        glVertex3f(1,0,0);
-    glEnd();
-    //esquerda
-    glBegin(GL_POLYGON);
-        glNormal3f(-1,0,0);
-        glVertex3f(0,0,0);
-        glVertex3f(0,0,1);
-        glVertex3f(0,1,1);
-        glVertex3f(0,1,0);
-    glEnd();
-    //direita
-    glBegin(GL_POLYGON);
-        glNormal3f(1,0,0);
-        glVertex3f(1,0,0);
-        glVertex3f(1,1,0);
-        glVertex3f(1,1,1);
-        glVertex3f(1,0,1);
-    glEnd();
-    //superior
-    glBegin(GL_POLYGON);
-        glNormal3f(0,1,0);
-        glVertex3f(0,1,0);
-        glVertex3f(0,1,1);
-        glVertex3f(1,1,1);
-        glVertex3f(1,1,0);
-    glEnd();
-    //inferior
-    glBegin(GL_POLYGON);
-        glNormal3f(0,-1,0);
-        glVertex3f(0,0,0);
-        glVertex3f(1,0,0);
-        glVertex3f(1,0,1);
-        glVertex3f(0,0,1);
-    glEnd();
-    //teto esquerdo
-    glBegin(GL_POLYGON);
-        glNormal3f(-1,1,0);
-        glVertex3f(0,1,0);
-        glVertex3f(0,1,1);
-        glVertex3f(0.5,1.5,0.5);
-    glEnd();
-}
-
-void objetoCortado() {
-    //GUI::drawSphere(posEsfera.x,posEsfera.y,posEsfera.z, raioEsfera);
-    GUI::drawHalfSphere(0,0,0, raioEsfera);
-    //GUI::drawSphereInsideBox222(posEsfera.x,posEsfera.y,posEsfera.z, raioEsfera);
-    //GUI::drawSphereInsideBox222(0,0,0, raioEsfera);
-
-    //    //clipping
-    //    //GLdouble plane[4] = { 0.0, 1.0, 0.0, 1}; //deixa a parte acima (y) do plano aparecendo (plano posicionado no y=-1, d desloca o plano no sentido oposto à normal) (corta o y<-1)
-    //    //GLdouble plane[4] = { 0.0, -1.0, 0.0, 1}; //deixa a parte abaixo (y) do plano aparecendo (plano posicionado no y=1, d desloca o plano no sentido oposto à normal) (corta o y>1)
-    //    GLdouble plane[4] = { 1.0, 1.0, 0.0, -1.0 }; //deixa a parte à frente do plano (z) do plano aparecendo (plano posicionado no z=0, d desloca o plano no sentido oposto à normal) (corta o z<0)
-    //    glClipPlane(GL_CLIP_PLANE0, plane);
-    //    glEnable(GL_CLIP_PLANE0);
-
-
-
-    //    //objeto a ser cortado
-    //    //GUI::drawSphere(0,0,0,raioEsfera);
-    //    casa();
-
-    //    //clipping
-    //    glDisable(GL_CLIP_PLANE0);
-}
-
 int idTexture = 0;
 
-void objetoComTextura() {
-    //Usando texturas
-
-    GUI::habilitaTextura(true,false,0);
-    GUI::selecionaTextura(idTexture);
-
-    //objeto a ser texturizado
-    GUI::setColor(0.5,0.5,0.5);
-    //GUI::drawBox(-1,-1,-1, 1,1,1);
-    //GUI::drawSphere(posEsfera.x,posEsfera.y,posEsfera.z, raioEsfera);
-
-    glBegin(GL_POLYGON);
-        glTexCoord2f(0,0); glVertex3d(0,0,0);
-        glTexCoord2f(0.5,0); glVertex3d(1,0,0);
-        glTexCoord2f(0.5,1); glVertex3d(1,1,0);
-        glTexCoord2f(0,1); glVertex3d(0,1,0);
-    glEnd();
-
-    GUI::desabilitaTextura(true,false);
-}
 void peao(float colorR, float colorG, float colorB){
 
     glPushMatrix();
 
     glTranslatef(0,-0.35, 0);
     GUI::habilitaTextura(true,false,0);
-    GUI::selecionaTextura(6);
-    GUI::setColor(colorR,colorG,colorB);
+    GUI::selecionaTextura(0);
+    GUI::setColor(colorR,colorG,colorB,true);
 
     GUI::drawSphere(0,2,0, 0.3);
     glRotatef(90, 1, 0, 0);
@@ -153,8 +47,8 @@ void bispo(float colorR, float colorG, float colorB){
 
     glTranslatef(0,-0.35, 0);
     GUI::habilitaTextura(true,false,0);
-    GUI::selecionaTextura(6);
-    GUI::setColor(colorR,colorG,colorB);
+    GUI::selecionaTextura(0);
+    GUI::setColor(colorR,colorG,colorB,true);
 
     GUI::drawSphere(0,2.51,0, 0.12);
 
@@ -401,8 +295,8 @@ void torre(float colorR, float colorG, float ColorB){
 
     glPushMatrix();
     GUI::habilitaTextura(true,false,0);
-    GUI::selecionaTextura(6);
-    GUI::setColor(colorR,colorG,ColorB);
+    GUI::selecionaTextura(0);
+    GUI::setColor(colorR,colorG,ColorB,true);
     glTranslatef(0,1.45,0);
     cabecaTorre();
     glTranslatef(0,-1.45,0);
@@ -430,8 +324,8 @@ void torre(float colorR, float colorG, float ColorB){
 
 void rainha(float colorR, float colorG, float ColorB){
     GUI::habilitaTextura(true,false,0);
-    GUI::selecionaTextura(6);
-    GUI::setColor(colorR,colorG,ColorB);
+    GUI::selecionaTextura(0);
+    GUI::setColor(colorR,colorG,ColorB,true);
 
     glPushMatrix();
 
@@ -551,8 +445,8 @@ void cruzRei(){
 
 void rei(float colorR, float colorG, float ColorB){
     GUI::habilitaTextura(true,false,0);
-    GUI::selecionaTextura(6);
-    GUI::setColor(colorR,colorG,ColorB);
+    GUI::selecionaTextura(0);
+    GUI::setColor(colorR,colorG,ColorB,true);
 
     glPushMatrix();
 
@@ -631,6 +525,183 @@ void casaTaboleiro(){
         glVertex3f(0.5,0,0.5);
     glEnd();
 }
+
+void bordaTabuleiro(){
+    //frontal
+    GUI::habilitaTextura(true,false,0);
+    GUI::selecionaTextura(1);
+    GUI::setColor(0.92,0.78,0.62,1);
+
+    // fernte - frente
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,1);
+        glTexCoord2d(0,0);
+        glVertex3f(-0.9,0,0.9);
+        glTexCoord2d(1,0);
+        glVertex3f(7.9,0,0.9);
+        glTexCoord2d(1,1);
+        glVertex3f(7.9,1.05,0.9);
+        glTexCoord2d(0,1);
+        glVertex3f(-0.9,1.05,0.9);
+    glEnd();
+
+
+    // fernte - trazeira
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,-1);
+        glTexCoord2d(0,0);
+        glVertex3f(-0.9,0,0.5);
+        glTexCoord2d(1,0);
+        glVertex3f(-0.9,1.05,0.5);
+        glTexCoord2d(1,1);
+        glVertex3f(7.9,1.05,0.5);
+        glTexCoord2d(0,1);
+        glVertex3f(7.9,0,0.5);
+    glEnd();
+
+    // fernte - topo
+    glBegin(GL_POLYGON);
+        glNormal3f(0,1,0);
+        glTexCoord2d(0,0);
+        glVertex3f(-0.9,1.05,0.9);
+        glTexCoord2d(1,0);
+        glVertex3f(7.9,1.05,0.9);
+        glTexCoord2d(1,1);
+        glVertex3f(7.9,1.05,0.5);
+        glTexCoord2d(0,1);
+        glVertex3f(-0.9,1.05,0.5);
+    glEnd();
+
+    // fernte - inferior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,-1,0);
+        glTexCoord2d(0,0);
+        glVertex3f(-0.9,0,0.9);
+        glTexCoord2d(1,0);
+        glVertex3f(-0.9,0,0.5);
+        glTexCoord2d(1,1);
+        glVertex3f(7.9,0,0.5);
+        glTexCoord2d(0,1);
+        glVertex3f(7.9,0,0.9);
+    glEnd();
+
+    // direita - frente
+    glBegin(GL_POLYGON);
+        glNormal3f(1,0,0);
+        glTexCoord2d(0,0);
+        glVertex3f(7.9,0,0.9);
+        glTexCoord2d(1,0);
+        glVertex3f(7.9,0,-7.9);
+        glTexCoord2d(1,1);
+        glVertex3f(7.9,1.05,-7.9);
+        glTexCoord2d(0,1);
+        glVertex3f(7.9,1.05,0.9);
+    glEnd();
+    // direita - trazeira
+    glBegin(GL_POLYGON);
+        glNormal3f(-1,0,0);
+        glTexCoord2d(0,0);
+        glVertex3f(7.5,0,0.9);
+        glTexCoord2d(1,0);
+        glVertex3f(7.5,1.05,0.9);
+        glTexCoord2d(1,1);
+        glVertex3f(7.5,1.05,-7.9);
+        glTexCoord2d(0,1);
+        glVertex3f(7.5,0,-7.9);
+    glEnd();
+    // direita - topo
+    glBegin(GL_POLYGON);
+        glNormal3f(0,1,0);
+        glTexCoord2d(0,0);
+        glVertex3f(7.5,1.05,0.9);
+        glTexCoord2d(1,0);
+        glVertex3f(7.9,1.05,0.9);
+        glTexCoord2d(1,1);
+        glVertex3f(7.9,1.05,-7.9);
+        glTexCoord2d(0,1);
+        glVertex3f(7.5,1.05,-7.9);
+    glEnd();
+    // direita - inferior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,-1,0);
+        glTexCoord2d(0,0);
+        glVertex3f(7.5,0,0.9);
+        glTexCoord2d(1,0);
+        glVertex3f(7.5,0,-7.9);
+        glTexCoord2d(1,1);
+        glVertex3f(7.9,0,-7.9);
+        glTexCoord2d(0,1);
+        glVertex3f(7.9,0,0.9);
+    glEnd();
+
+    // esquerda - frente
+    glBegin(GL_POLYGON);
+        glNormal3f(-1,0,0);
+        glVertex3f(-0.9,0,0.9);
+        glVertex3f(-0.9,1.05,0.9);
+        glVertex3f(-0.9,1.05,-7.9);
+        glVertex3f(-0.9,0,-7.9);
+    glEnd();
+    // esquerda - trazeira
+    glBegin(GL_POLYGON);
+        glNormal3f(1,0,0);
+        glVertex3f(-0.5,0,0.9);
+        glVertex3f(-0.5,0,-7.9);
+        glVertex3f(-0.5,1.05,-7.9);
+        glVertex3f(-0.5,1.05,0.9);
+    glEnd();
+    // esquerda - topo
+    glBegin(GL_POLYGON);
+        glNormal3f(0,1,0);
+        glVertex3f(-0.5,1.05,0.9);
+        glVertex3f(-0.5,1.05,-7.9);
+        glVertex3f(-0.9,1.05,-7.9);
+        glVertex3f(-0.9,1.05,0.9);
+    glEnd();
+    // esquerda - inferior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,-1,0);
+        glVertex3f(-0.5,0,0.9);
+        glVertex3f(-0.9,0,0.9);
+        glVertex3f(-0.9,0,-7.9);
+        glVertex3f(-0.5,0,-7.9);
+    glEnd();
+
+    // trazeira - trazeira
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,-1);
+        glVertex3f(7.9,0,-7.9);
+        glVertex3f(-0.9,0,-7.9);
+        glVertex3f(-0.9,1.05,-7.9);
+        glVertex3f(7.9,1.05,-7.9);
+    glEnd();
+    // trazeira - frente
+    glBegin(GL_POLYGON);
+        glNormal3f(0,0,1);
+        glVertex3f(7.9,0,-7.5);
+        glVertex3f(7.9,1.05,-7.5);
+        glVertex3f(-0.9,1.05,-7.5);
+        glVertex3f(-0.9,0,-7.5);
+    glEnd();
+    // trazeira - topo
+    glBegin(GL_POLYGON);
+        glNormal3f(0,1,0);
+        glVertex3f(-0.9,1.05,-7.9);
+        glVertex3f(-0.9,1.05,-7.5);
+        glVertex3f(7.9,1.05,-7.5);
+        glVertex3f(7.9,1.05,-7.9);
+    glEnd();
+    // trazeira - inferior
+    glBegin(GL_POLYGON);
+        glNormal3f(0,-1,0);
+        glVertex3f(-0.9,0,-7.9);
+        glVertex3f(7.9,0,-7.9);
+        glVertex3f(7.9,0,-7.5);
+        glVertex3f(-0.9,0,-7.5);
+    glEnd();
+    GUI::desabilitaTextura(true,false);
+}
+
 void tabuleiro(){
     glPushMatrix();
 
@@ -659,7 +730,7 @@ void tabuleiro(){
 void desenha() {
     GUI::displayInit();
 
-    GUI::setLight(0, 0,2,2, true, false);
+    GUI::setLight(0, 4,5,-3, true, false);
 
     GUI::drawOrigin(0.5);
     //GUI::drawOriginAL(5,0.5);
@@ -760,8 +831,29 @@ void desenha() {
     rei(0.1,0.1,0.1);
     glPopMatrix();
 
+    glPushMatrix();
+    glTranslatef(0,-1,1);
+    bordaTabuleiro();
+    glPopMatrix();
     GUI::displayEnd();
 }
+
+void desenhaTeste() {
+    GUI::displayInit();
+
+    GUI::setLight(0, 4,2.5,-3, true, false);
+
+    GUI::drawOrigin(0.5);
+    //GUI::drawOriginAL(5,0.5);
+    GUI::setColor(0.8,0.0,0.0, 1,true);
+    GUI::drawFloor(5,5);
+
+    GUI::setColor(0.0,0.8,0.0, 1,true);
+
+    bordaTabuleiro();
+    GUI::displayEnd();
+}
+
 
 void teclado(unsigned char tecla, int x, int y) {
     GUI::keyInit(tecla,x,y);
