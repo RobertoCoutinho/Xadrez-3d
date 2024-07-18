@@ -637,66 +637,98 @@ void bordaTabuleiro(){
     // esquerda - frente
     glBegin(GL_POLYGON);
         glNormal3f(-1,0,0);
+        glTexCoord2d(0,0);
         glVertex3f(-0.9,0,0.9);
+        glTexCoord2d(1,0);
         glVertex3f(-0.9,1.05,0.9);
+        glTexCoord2d(1,1);
         glVertex3f(-0.9,1.05,-7.9);
+        glTexCoord2d(0,1);
         glVertex3f(-0.9,0,-7.9);
     glEnd();
     // esquerda - trazeira
     glBegin(GL_POLYGON);
         glNormal3f(1,0,0);
+        glTexCoord2d(0,0);
         glVertex3f(-0.5,0,0.9);
+        glTexCoord2d(1,0);
         glVertex3f(-0.5,0,-7.9);
+        glTexCoord2d(1,1);
         glVertex3f(-0.5,1.05,-7.9);
+        glTexCoord2d(0,1);
         glVertex3f(-0.5,1.05,0.9);
     glEnd();
     // esquerda - topo
     glBegin(GL_POLYGON);
         glNormal3f(0,1,0);
+        glTexCoord2d(0,0);
         glVertex3f(-0.5,1.05,0.9);
+        glTexCoord2d(1,0);
         glVertex3f(-0.5,1.05,-7.9);
+        glTexCoord2d(1,1);
         glVertex3f(-0.9,1.05,-7.9);
+        glTexCoord2d(0,1);
         glVertex3f(-0.9,1.05,0.9);
     glEnd();
     // esquerda - inferior
     glBegin(GL_POLYGON);
         glNormal3f(0,-1,0);
+        glTexCoord2d(0,0);
         glVertex3f(-0.5,0,0.9);
+        glTexCoord2d(1,0);
         glVertex3f(-0.9,0,0.9);
+        glTexCoord2d(1,1);
         glVertex3f(-0.9,0,-7.9);
+        glTexCoord2d(0,1);
         glVertex3f(-0.5,0,-7.9);
     glEnd();
 
     // trazeira - trazeira
     glBegin(GL_POLYGON);
         glNormal3f(0,0,-1);
+        glTexCoord2d(0,0);
         glVertex3f(7.9,0,-7.9);
+        glTexCoord2d(1,0);
         glVertex3f(-0.9,0,-7.9);
+        glTexCoord2d(1,1);
         glVertex3f(-0.9,1.05,-7.9);
+        glTexCoord2d(0,1);
         glVertex3f(7.9,1.05,-7.9);
     glEnd();
     // trazeira - frente
     glBegin(GL_POLYGON);
         glNormal3f(0,0,1);
+        glTexCoord2d(0,0);
         glVertex3f(7.9,0,-7.5);
+        glTexCoord2d(1,0);
         glVertex3f(7.9,1.05,-7.5);
+        glTexCoord2d(1,1);
         glVertex3f(-0.9,1.05,-7.5);
+        glTexCoord2d(0,1);
         glVertex3f(-0.9,0,-7.5);
     glEnd();
     // trazeira - topo
     glBegin(GL_POLYGON);
         glNormal3f(0,1,0);
+        glTexCoord2d(0,0);
         glVertex3f(-0.9,1.05,-7.9);
+        glTexCoord2d(1,0);
         glVertex3f(-0.9,1.05,-7.5);
+        glTexCoord2d(1,1);
         glVertex3f(7.9,1.05,-7.5);
+        glTexCoord2d(0,1);
         glVertex3f(7.9,1.05,-7.9);
     glEnd();
     // trazeira - inferior
     glBegin(GL_POLYGON);
         glNormal3f(0,-1,0);
+        glTexCoord2d(0,0);
         glVertex3f(-0.9,0,-7.9);
+        glTexCoord2d(1,0);
         glVertex3f(7.9,0,-7.9);
+        glTexCoord2d(1,1);
         glVertex3f(7.9,0,-7.5);
+        glTexCoord2d(0,1);
         glVertex3f(-0.9,0,-7.5);
     glEnd();
     GUI::desabilitaTextura(true,false);
@@ -837,7 +869,8 @@ void desenha() {
     glPopMatrix();
     GUI::displayEnd();
 }
-
+Model3DS carro = Model3DS("../3ds/cartest2.3DS");
+Model3DS cavalo = Model3DS("../3ds/cavalo.3ds");
 void desenhaTeste() {
     GUI::displayInit();
 
@@ -850,7 +883,7 @@ void desenhaTeste() {
 
     GUI::setColor(0.0,0.8,0.0, 1,true);
 
-    bordaTabuleiro();
+    GUI::draw3ds(carro);
     GUI::displayEnd();
 }
 
